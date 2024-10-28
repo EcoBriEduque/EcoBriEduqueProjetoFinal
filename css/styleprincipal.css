@@ -1,0 +1,577 @@
+/* Resetando margens e espaçamentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  
+  }
+  
+  :root {
+    --cor-primaria: #597653; 
+    --cor-secundaria: #a5bc94; 
+    --cor-fundo:#ffffe9;
+    --cor-botao: #6f866bde;
+    --cor-botaohover: #597653;
+    --cor-texto: #000000;
+  }
+  
+  /* Estilos gerais */
+  body {
+    background-color: var(--cor-fundo);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-weight: normal;
+  }
+  
+  header {
+    font-weight: normal;
+    background-color: var(--cor-primaria); /* Cor de fundo do cabeçalho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: rgb(0, 0, 0) 1px solid;
+    padding: 10px 20px;
+    position: relative; /* Para posicionamento do submenu */
+}
+
+#LogoEcoBriEduque {
+    height: 140px;
+}
+
+
+.DivisoriaTopo {
+    width: 2px; 
+    height: 70px; 
+    background-color: var(--cor-secundaria); 
+    margin-right: -800px; /* Espaço entre a divisória e o conteúdo */
+}
+
+#NavegacaoTopo {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: normal;
+    justify-content: center;
+    gap: 20px;
+    margin-right: 5%;
+}
+
+.BotoesNavegacaoTopo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    flex-direction: row; /* Alinha itens na horizontal */
+    position: relative;
+    margin-left: 20px;
+}
+
+.BotoesNavegacaoTopo a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 20px;
+    display: flex; /* Usar flex para o link */
+    align-items: center; /* Alinha verticalmente o conteúdo do link */
+}
+
+.imgRedesTopo {
+    height: 30px;
+    margin-right: 5px; /* Espaço entre a imagem e o título */
+}
+
+.arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--cor-texto); /* Seta apontando para baixo */
+    margin-left: 5px; /* Espaço entre o título e a seta */
+}
+
+
+.arrow.active {
+    transform: rotate(180deg); /* Roda a seta para baixo */
+}
+
+
+.SubReIn {
+    display: none; /* Inicialmente escondido */
+    flex-direction: column;
+    position: absolute; /* Para posicionar o submenu em relação ao item pai */
+    top: 100%; /* Abaixo do item pai */
+    left: 0;
+    background-color: #a5bc94;/* Cor de fundo do submenu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px; 
+    min-width: 200px; 
+    margin-top: 8px;
+}
+
+.SubReIn.active {
+    display: flex; 
+}
+
+.SubReciclagem, .SubInformacao {
+    padding: 8px;   
+}
+
+.links .Sub {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Mantém a cor do texto padrão */
+    display: flex; /* Facilita o alinhamento da imagem e do texto */
+    align-items: center; /* Alinha verticalmente */
+
+}
+
+.links .Sub:hover {
+    background-color: #f0f0f0; /* Fundo ao passar o mouse */
+}
+
+.imgSubs {
+  max-height: 30px; /* Altura máxima da imagem */
+  max-width: 30px; /* Largura máxima da imagem */
+  height: auto; /* Mantém a proporção */
+  width: auto; /* Mantém a proporção */
+  margin-right: 10px; /* Espaçamento à direita */
+}
+
+
+
+.overlay {
+    display: none; /* Oculta o overlay inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0); /* Mude para transparente */
+    z-index: 500; /* Acima de outros elementos */
+}
+
+.overlay.active {
+    display: block; /* Exibe o overlay se ativo */
+}
+
+/* Efeito de rotação da seta ao abrir o submenu */
+.submenu-toggle.active + .arrow {
+    transform: rotate(180deg);
+}
+
+/* Exibir seta no submenu */
+.submenu-link .arrow {
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ConsultadePontosdeColeta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha à esquerda */
+  padding: 40px;
+  background-color: #a5bc947a;
+}
+
+.imgPontosdeColeta {
+  width: 170px; /* Ajuste conforme necessário */
+  height: auto;
+  margin-right: 30px; /* Espaço entre a imagem e o texto */
+}
+
+.PontosdeColeta {
+  max-width: 600px;
+}
+
+.PontosdeColeta h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.PontosdeColeta p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.BotaoBuscarPontos {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  background-color: var(--cor-botao); /* Cor do botão */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--cor-botaohover); /* Cor ao passar o mouse */
+}
+
+.BotaoBuscarPontos a {
+  text-decoration: none; 
+}
+
+.DivisoriaConsultarPontosdeColeta {
+  height: 2px;
+  background-color: black; /* Cor da divisória */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  /*Cards la em baixo de Materiais reciclaveis*/
+  #Materiais {
+    text-align: center;
+    background-color: var(--cor-fundo);
+    padding: 40px 20px;
+    margin: 20px 0;
+  }
+  
+  #Materiais h2 {
+    font-size: 25px;
+    font-weight: 300; 
+    color: var(--cor-primaria); 
+    margin-bottom: 10px;
+  }
+  
+  #Materiais p {
+    font-size: 16px;
+    color: var(--cor-texto); 
+    margin-bottom: 50px;
+  }
+  
+  .Cardsimg {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 65px;
+  }
+  
+  .Cardsimg figcaption {
+    font-size: 16px; 
+    margin-top: 5px; 
+    padding: 5px; 
+    border-radius: 4px; 
+  }
+  
+  .Cardsimg img {
+    width: 140px; 
+    height: 130px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    transition: transform 0.3s; 
+  }
+  
+  .Cardsimg a:hover img {
+    transform: scale(1.05); 
+  }
+  
+  figcaption {
+    font-size: 16px; 
+    color: var(--cor-preto);
+    margin-top: 5px; 
+  }
+  
+  .Divisoria {
+    border: none; 
+    height: 2px; 
+    background-color: var(--cor-secundaria); 
+    margin: 20px 0; 
+    border-radius: 5px; 
+    margin-bottom: 30px;
+  }
+  
+  /*Rodape*/
+  footer {
+    background-color: var(--cor-primaria);
+    color: #000000;
+    padding: 20px 20px;
+    position: relative;
+    border-top: rgb(0, 0, 0) 1px solid;
+  }
+  
+  @keyframes garfada {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  
+  .VoltaraoTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a5bc94;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-align: center;
+    display: none; /* Esconde o botão inicialmente */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    z-index: 1000;
+  }
+  
+  .VoltaraoTopo.show {
+    display: flex; /* Exibe o botão quando a classe show é adicionada */
+    opacity: 1; /* Opacidade total */
+    animation: garfada 0.5s forwards; /* Aplica a animação ao aparecer */
+  }
+  
+  .VoltaraoTopo img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .VoltaraoTopo:hover {
+    background-color: #486143;
+    box-shadow: 0 4px 8px var(--cor-primaria);
+  }
+  
+  
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .Rodape {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .Rodape h3 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #a5bc94;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-family:  Arial, sans-serif;
+  }
+  
+  .Rodape p, .Rodape ul {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  
+  .Rodape ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .Rodape ul li {
+    margin-bottom: 10px;
+  }
+  
+  .Rodape ul li a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .Rodape ul li a:hover {
+    color: #a5bc94;
+  }
+  
+  .RedesSociais {
+    margin-top: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-bottom: 10px;
+  }
+  
+  .sociais {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .sociais img {
+    width: 40px; 
+    height: 40px; 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+  }
+  
+  .sociais img:hover {
+    transform: scale(1.2); 
+    opacity: 0.8;
+  }
+  
+  .Contato {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 8px; 
+    border: 1px solid #a5bc94; 
+    border-radius: 6px;
+    background-color: #a5bc94; 
+    width: fit-content; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; 
+  }
+  
+  .LinkContato {
+    display: flex;
+    align-items: center; 
+    text-decoration: none; 
+    color: rgb(0, 0, 0); 
+    transition: color 0.3s ease; 
+  }
+  
+  
+  .imgContato {
+    width: 20px; 
+    height: 20px;
+    margin-right: 6px;
+    object-fit: contain;
+    transition: transform 0.3s ease; 
+  }
+  
+  
+  .LinkContato span {
+    font-size: 12px; 
+    font-weight: 400; 
+    white-space: nowrap;
+  }
+  
+  
+  .Contato:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+  .LinkContato:hover {
+    color: #486143;
+  }
+  
+  
+  .LinkContato:hover .imgContato {
+    transform: scale(1.2); 
+  }
+  
+  .Direitos {
+    color: #a5bc94;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .Direitos p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  .botoesNavegacao:hover {
+    transform: scale(1.2);
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+  
+  }
+  #secaoInformacao{
+    width: 100%;
+    display:flex
+  }
+   #secaoInformacao section{
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #a5bc94;
+    border: #333 1px solid;
+    margin: 2%;
+  
+   }
+  
+   .links {
+    text-decoration: none;
+    color: #000000; /* Cor padrão do texto */
+    transition: color 0.3s ease; /* Transição suave para mudança de cor */
+  }
+  
+  .links:hover h6 {
+    color: #a5bc94; /* Cor do texto ao passar o mouse */
+  }
+  
+  
+  
+  
+  .button-link {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 30px;
+    color: white;
+    background-color: #a5bc94;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    width: 15%;
+    text-align: center;
+    margin-left: 43%;
+  }
+  
+  .button-link:hover {
+    background-color: #333;
+    transform: scale(1.05);
+  }
+  
+  .button-link:active {
+    background-color: #e67f73;
+    transform: scale(1);
+  }
+  
